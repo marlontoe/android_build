@@ -308,10 +308,10 @@ def BuildBootableImage(sourcedir, fs_config_file, info_dict=None):
   assert p1.returncode == 0, "mkbootfs of %s ramdisk failed" % (targetname,)
   assert p2.returncode == 0, "minigzip of %s ramdisk failed" % (targetname,)
 
-  # use MKBOOTIMG from environ, or "mkbootimg" if empty or not set
-  mkbootimg = os.getenv('MKBOOTIMG') or "mkbootimg"
+  # use MKQCDBOOTIMG from environ, or "mkbootimg" if empty or not set
+  mkqcdtbootimg = os.getenv('MKQCDBOOTIMG') or "mkqcdtbootimg"
 
-  cmd = [mkbootimg, "--kernel", os.path.join(sourcedir, "kernel")]
+  cmd = [mkqcdtbootimg, "--kernel", os.path.join(sourcedir, "kernel")]
 
   fn = os.path.join(sourcedir, "second")
   if os.access(fn, os.F_OK):
