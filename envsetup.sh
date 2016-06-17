@@ -2096,7 +2096,30 @@ function mka() {
         echo "Couldn't locate the top of the tree.  Try setting TOP."
     fi
 }
-
+smash() {
+#to do: add smash $anytarget, smashOTA, smash, smashVANIR
+DIR=$OUT
+#to do: fix the colors
+	if [ -d  "$DIR" ]; then
+	echo ""
+	echo $CL_RED" Removing" $CL_RST" $TARGET_PRODUCT out directory:"
+	echo " Location:"
+	echo " $OUT"
+	rm -R -f $OUT
+	echo "  ."
+	echo "  ."
+	echo "  ."
+	echo "  ."
+	echo "  ."
+	echo $CL_RST" Destroyed."
+	echo ""
+	return;
+	else
+	echo ""
+	echo $CL_YLW" Already" $CL_RED" SMASHED it !!!" $CL_RST
+	echo ""
+	fi
+}
 function cmka() {
     if [ ! -z "$1" ]; then
         for i in "$@"; do
